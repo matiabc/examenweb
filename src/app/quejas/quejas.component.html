@@ -1,0 +1,27 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" accept-charset="utf-8" novalidate *ngIf="enviado==0">
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Ingrese su nombre</label>
+      <input formControlName="nombre" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nombre completo">
+    </div>
+    <div>
+      <label for="exampleFormControlSelect1">Selecciones su país </label>
+      <select formControlName="pais" class="form-control" id="exampleFormControlSelect1">
+        <option>Argentina</option>
+        <option>Bolivia</option>
+        <option>Brasil</option>
+        <option>Chile</option>
+        <option>Colombia</option>
+      </select>
+    </div>
+      <label for="caja">Dejenos su comentario</label>
+      <textarea formControlName="comentario" class="form-control" id="caja" rows="3"></textarea>
+
+      <p id= "submits" >
+        <input type="submit" value="Enviar" [disabled] = "formulario.invalid">
+        <input type="reset" value="Borrar">
+      </p>
+  </form>
+
+  <div *ngIf="enviado==1">
+    Su queja fue recibida. Muy pronto nos estaremos comunicando con usted. 
+  </div>
